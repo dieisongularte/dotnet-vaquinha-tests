@@ -61,8 +61,41 @@ namespace Vaquinha.AutomatedUITests
 			IWebElement campoNome = _driver.FindElement(By.Id("DadosPessoais_Nome"));
 			campoNome.SendKeys(doacao.DadosPessoais.Nome);
 
+			IWebElement campoEmail = _driver.FindElement(By.Id("DadosPessoais_Email"));
+			campoEmail.SendKeys(doacao.DadosPessoais.Email);
+
+			IWebElement cep = _driver.FindElement(By.Id("cep"));
+			cep.SendKeys(doacao.EnderecoCobranca.CEP);
+
+			IWebElement endereco = _driver.FindElement(By.Id("EnderecoCobranca_TextoEndereco"));
+			endereco.SendKeys(doacao.EnderecoCobranca.TextoEndereco);
+
+			IWebElement numero = _driver.FindElement(By.Id("EnderecoCobranca_Numero"));
+			numero.SendKeys(doacao.EnderecoCobranca.Numero);
+
+			IWebElement cidade = _driver.FindElement(By.Id("EnderecoCobranca_Cidade"));
+			cidade.SendKeys(doacao.EnderecoCobranca.Cidade);
+
+			IWebElement telefone = _driver.FindElement(By.Id("telefone"));
+			telefone.SendKeys(doacao.EnderecoCobranca.Telefone);
+
+			IWebElement titular = _driver.FindElement(By.Id("FormaPagamento_NomeTitular"));
+			titular.SendKeys(doacao.FormaPagamento.NomeTitular);
+			
+			IWebElement cardNumber = _driver.FindElement(By.Id("cardNumber"));
+			cardNumber.SendKeys(doacao.FormaPagamento.NumeroCartaoCredito);
+
+			IWebElement cvv = _driver.FindElement(By.Id("cvv"));
+			cvv.SendKeys(doacao.FormaPagamento.CVV);
+
+			IWebElement validade = _driver.FindElement(By.Id("validade"));
+			validade.SendKeys(doacao.FormaPagamento.Validade);
+
+			IWebElement btnDoar = _driver.FindElement(By.ClassName("btn-yellow"));
+			btnDoar.Click();
+
 			//Assert
-			_driver.Url.Should().Contain("/Doacoes/Create");
+			_driver.Url.Should().Contain("/Home/Index");
 		}
 	}
 }
